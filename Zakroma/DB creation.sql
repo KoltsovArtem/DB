@@ -51,10 +51,6 @@ CREATE TABLE "meals_dishes" (
   PRIMARY KEY ("meal_id", "dish_id")
 );
 
-CREATE TABLE "diet_day" (
-  "diet_day_id" integer PRIMARY KEY
-);
-
 CREATE TABLE "diet" (
   "diet_id" integer PRIMARY KEY,
   "diet_name" varchar,
@@ -96,7 +92,7 @@ CREATE TABLE "diet_day_meals" (
   "meal_id" integer,
   "diet_day_id" integer,
   "index" integer,
-  PRIMARY KEY ("meal_id", "diet_day_id")
+  PRIMARY KEY ("diet_day_id", "meal_id")
 );
 
 CREATE TABLE "diet_day_diet" (
@@ -148,12 +144,10 @@ ALTER TABLE "groups_diets" ADD FOREIGN KEY ("diet_id") REFERENCES "diet" ("diet_
 
 ALTER TABLE "diet_day_meals" ADD FOREIGN KEY ("meal_id") REFERENCES "meals" ("meal_id");
 
-ALTER TABLE "diet_day_meals" ADD FOREIGN KEY ("diet_day_id") REFERENCES "diet_day" ("diet_day_id");
-
 ALTER TABLE "diet_day_diet" ADD FOREIGN KEY ("diet_id") REFERENCES "diet" ("diet_id");
-
-ALTER TABLE "diet_day_diet" ADD FOREIGN KEY ("diet_day_id") REFERENCES "diet_day" ("diet_day_id");
 
 ALTER TABLE "groups_diet_created_by_groups" ADD FOREIGN KEY ("group_id") REFERENCES "groups" ("group_id");
 
 ALTER TABLE "groups_diet_created_by_groups" ADD FOREIGN KEY ("diet_id") REFERENCES "diet" ("diet_id");
+
+ALTER TABLE "diet_day_diet" ADD FOREIGN KEY ("diet_day_id") REFERENCES "diet_day_meals" ("diet_day_id");
