@@ -20,7 +20,7 @@ CREATE TABLE "groups" (
 CREATE TABLE "dishes" (
   "dish_id" integer PRIMARY KEY,
   "dish_name" varchar,
-  "receipt" varchar,
+  "recipe" varchar,
   "proteins" numeric,
   "carbs" numeric,
   "fats" numeric,
@@ -89,11 +89,13 @@ CREATE TABLE "groups_products" (
 );
 
 CREATE TABLE "diet_day_meals" (
-  "meal_id" integer,
   "diet_day_id" integer,
+  "meal_id" integer,
   "index" integer,
   PRIMARY KEY ("diet_day_id", "meal_id")
 );
+
+ALTER TABLE "diet_day_meals" ADD UNIQUE ("diet_day_id");
 
 CREATE TABLE "diet_day_diet" (
   "diet_id" integer,
