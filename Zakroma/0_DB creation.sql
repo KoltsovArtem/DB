@@ -14,7 +14,8 @@ CREATE TABLE "users_groups" (
 
 CREATE TABLE "groups" (
   "group_id" integer PRIMARY KEY,
-  "group_name" varchar
+  "group_name" varchar,
+  "current_diet_id" integer
 );
 
 CREATE TABLE "dishes" (
