@@ -1,0 +1,2 @@
+INSERT INTO users VALUES
+(0, 'Gigachad', 'ef92b7784aee0b8a8a7e4c144be76b7c72f9e436a6c5761a844e7d5e454d29c3', '2007-02-01');
